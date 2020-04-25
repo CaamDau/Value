@@ -9,7 +9,7 @@
 
 import Foundation
 
-public protocol CD_Value {
+public protocol CaamDauValueProtocol {
     var int:Int? { get }
     var intValue:Int { get }
     func int<T>(_ key:T) -> Int?
@@ -120,7 +120,7 @@ public protocol CD_Value {
     
     
 }
-public extension CD_Value {
+public extension CaamDauValueProtocol {
     private func isArray<T>(_ key:T) -> Any? {
         guard let arr = self as? Array<Any> else {
             return nil
@@ -418,18 +418,18 @@ public extension CD_Value {
     }
 }
 
-extension AnyHashable:CD_Value{}
-extension Dictionary:CD_Value {}
-extension Array:CD_Value {}
-extension String:CD_Value {}
-extension Double:CD_Value {}
-extension Float:CD_Value {}
-extension CGFloat:CD_Value {}
-extension Int:CD_Value {}
-extension Bool:CD_Value {}
+extension AnyHashable:CaamDauValueProtocol{}
+extension Dictionary:CaamDauValueProtocol {}
+extension Array:CaamDauValueProtocol {}
+extension String:CaamDauValueProtocol {}
+extension Double:CaamDauValueProtocol {}
+extension Float:CaamDauValueProtocol {}
+extension CGFloat:CaamDauValueProtocol {}
+extension Int:CaamDauValueProtocol {}
+extension Bool:CaamDauValueProtocol {}
 
 
-extension NSDictionary:CD_Value {}
-extension NSArray:CD_Value {}
-extension NSString:CD_Value {}
-extension NSNumber:CD_Value {}
+extension NSDictionary:CaamDauValueProtocol {}
+extension NSArray:CaamDauValueProtocol {}
+extension NSString:CaamDauValueProtocol {}
+extension NSNumber:CaamDauValueProtocol {}

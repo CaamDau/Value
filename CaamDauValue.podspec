@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-  s.name             = 'Value'
+  s.name             = 'CaamDauValue'
   s.version          = '1.1.0'
   s.summary          = 'A iOS development toolbox (iOS 开发工具箱(模块组件) Swift 版).'
   s.description      = <<-DESC

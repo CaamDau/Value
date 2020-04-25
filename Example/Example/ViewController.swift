@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Value
+import CaamDauValue
 
 class ViewController: UIViewController {
     
