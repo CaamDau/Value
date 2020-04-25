@@ -9,7 +9,7 @@
 
 import Foundation
 
-public protocol ValueProtocol {
+public protocol CD_Value {
     var int:Int? { get }
     var intValue:Int { get }
     func int<T>(_ key:T) -> Int?
@@ -120,7 +120,7 @@ public protocol ValueProtocol {
     
     
 }
-public extension ValueProtocol {
+public extension CD_Value {
     private func isArray<T>(_ key:T) -> Any? {
         guard let arr = self as? Array<Any> else {
             return nil
@@ -418,18 +418,18 @@ public extension ValueProtocol {
     }
 }
 
-extension AnyHashable:ValueProtocol{}
-extension Dictionary:ValueProtocol {}
-extension Array:ValueProtocol {}
-extension String:ValueProtocol {}
-extension Double:ValueProtocol {}
-extension Float:ValueProtocol {}
-extension CGFloat:ValueProtocol {}
-extension Int:ValueProtocol {}
-extension Bool:ValueProtocol {}
+extension AnyHashable:CD_Value{}
+extension Dictionary:CD_Value {}
+extension Array:CD_Value {}
+extension String:CD_Value {}
+extension Double:CD_Value {}
+extension Float:CD_Value {}
+extension CGFloat:CD_Value {}
+extension Int:CD_Value {}
+extension Bool:CD_Value {}
 
 
-extension NSDictionary:ValueProtocol {}
-extension NSArray:ValueProtocol {}
-extension NSString:ValueProtocol {}
-extension NSNumber:ValueProtocol {}
+extension NSDictionary:CD_Value {}
+extension NSArray:CD_Value {}
+extension NSString:CD_Value {}
+extension NSNumber:CD_Value {}
