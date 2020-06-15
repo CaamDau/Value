@@ -9,7 +9,7 @@
 
 import Foundation
 
-public protocol CaamDauValueProtocol {
+public protocol ValueProtocol {
     var int:Int? { get }
     var intValue:Int { get }
     func int<T>(_ key:T) -> Int?
@@ -45,6 +45,11 @@ public protocol CaamDauValueProtocol {
     var urlValue:URL { get }
     func url<T>(_ key:T) -> URL?
     func urlValue<T>(_ key:T) -> URL
+    
+    var file:URL? { get }
+    var fileValue:URL { get }
+    func file<T>(_ key:T) -> URL?
+    func fileValue<T>(_ key:T) -> URL
     
     var array:Array<Any>? { get }
     var arrayValue:Array<Any> { get }
@@ -120,7 +125,7 @@ public protocol CaamDauValueProtocol {
     
     
 }
-public extension CaamDauValueProtocol {
+public extension ValueProtocol {
     private func isArray<T>(_ key:T) -> Any? {
         guard let arr = self as? Array<Any> else {
             return nil
@@ -366,6 +371,31 @@ public extension CaamDauValueProtocol {
         return self.url(key) ?? URL(string: "http://")!
     }
     
+    var file:URL? {
+        switch self {
+        case let i as String:
+            return URL(fileURLWithPath: i)
+        default:
+            return nil
+        }
+    }
+    var fileValue:URL {
+        return self.file ?? URL(string: "file://")!
+    }
+    func file<T>(_ key:T) -> URL? {
+        if let values = self.isArrayHashable(key) {
+            return values.file
+        }
+        if let values = self.isDictionaryHashable(key) {
+            return values.file
+        }
+        return nil
+    }
+    func fileValue<T>(_ key:T) -> URL {
+        return self.file(key) ?? URL(string: "file://")!
+    }
+    
+    
     var array:Array<Any>? {
         guard let arr = self as? Array<Any> else {
             return nil
@@ -418,18 +448,18 @@ public extension CaamDauValueProtocol {
     }
 }
 
-extension AnyHashable:CaamDauValueProtocol{}
-extension Dictionary:CaamDauValueProtocol {}
-extension Array:CaamDauValueProtocol {}
-extension String:CaamDauValueProtocol {}
-extension Double:CaamDauValueProtocol {}
-extension Float:CaamDauValueProtocol {}
-extension CGFloat:CaamDauValueProtocol {}
-extension Int:CaamDauValueProtocol {}
-extension Bool:CaamDauValueProtocol {}
+extension AnyHashable:ValueProtocol{}
+extension Dictionary:ValueProtocol {}
+extension Array:ValueProtocol {}
+extension String:ValueProtocol {}
+extension Double:ValueProtocol {}
+extension Float:ValueProtocol {}
+extension CGFloat:ValueProtocol {}
+extension Int:ValueProtocol {}
+extension Bool:ValueProtocol {}
 
 
-extension NSDictionary:CaamDauValueProtocol {}
-extension NSArray:CaamDauValueProtocol {}
-extension NSString:CaamDauValueProtocol {}
-extension NSNumber:CaamDauValueProtocol {}
+extension NSDictionary:ValueProtocol {}
+extension NSArray:ValueProtocol {}
+extension NSString:ValueProtocol {}
+extension NSNumber:ValueProtocol {}
