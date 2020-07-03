@@ -3,5 +3,5 @@ inhibit_all_warnings!
 platform :ios, '10.0'
 source 'https://github.com/CocoaPods/Specs.git'
 target 'Example' do
-  pod 'CaamDauValue', :path => '../'
+  pod 'CaamDauValue'  # , :path => '../'
 end

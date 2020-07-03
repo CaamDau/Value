@@ -448,18 +448,18 @@ public extension ValueProtocol {
     }
 }
 
-//extension AnyHashable:ValueProtocol{}
-//extension Dictionary:ValueProtocol {}
-//extension Array:ValueProtocol {}
-//extension String:ValueProtocol {}
-//extension Double:ValueProtocol {}
-//extension Float:ValueProtocol {}
-//extension CGFloat:ValueProtocol {}
-//extension Int:ValueProtocol {}
-//extension Bool:ValueProtocol {}
-//
-//
-//extension NSDictionary:ValueProtocol {}
-//extension NSArray:ValueProtocol {}
-//extension NSString:ValueProtocol {}
-//extension NSNumber:ValueProtocol {}
+extension AnyHashable:ValueProtocol{}
+extension Dictionary:ValueProtocol {}
+extension Array:ValueProtocol {}
+extension String:ValueProtocol {}
+extension Double:ValueProtocol {}
+extension Float:ValueProtocol {}
+extension CGFloat:ValueProtocol {}
+extension Int:ValueProtocol {}
+extension Bool:ValueProtocol {}
+
+
+extension NSDictionary:ValueProtocol {}
+extension NSArray:ValueProtocol {}
+extension NSString:ValueProtocol {}
+extension NSNumber:ValueProtocol {}
