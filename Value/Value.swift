@@ -134,7 +134,7 @@ public extension ValueProtocol {
             assertionFailure("👉👉👉\(self)[\(key)] - 数组下标非法 👻")
             return nil
         }
-        guard i > 0 && arr.count > i else {
+        guard i >= 0 && arr.count > i else {
             assertionFailure("👉👉👉\(self)[\(key)] - 数组index越界 👻")
             return nil
         }
