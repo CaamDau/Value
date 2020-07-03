@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/CaamDau'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'liucaide' => '565726319@qq.com' }
-  s.source           = { :git => 'https://github.com/CaamDau/Value.git', :tag => s.version }
+  s.source           = { :git => 'https://github.com/CaamDau/Value.git', :branch => 'iOS10' }
 
   s.ios.deployment_target = '10.0'
   s.swift_version = ['4.0', '4.2', '5.0', '5.1']
